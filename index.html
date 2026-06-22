@@ -579,7 +579,6 @@ footer{padding:30px 20px 40px;text-align:center;color:var(--ink-soft);font-size:
       <span class="urgency">🔥 Oferta por tempo limitado</span>
       <p class="timer-msg">Essa oferta expira em:</p>
       <div class="timer-wrap" id="timerWrap">
-        <div class="timer-box"><div class="t-num" id="tHours">00</div><div class="t-lbl">horas</div></div>
         <div class="timer-box"><div class="t-num" id="tMins">00</div><div class="t-lbl">min</div></div>
         <div class="timer-box"><div class="t-num" id="tSecs">00</div><div class="t-lbl">seg</div></div>
       </div>
@@ -641,7 +640,7 @@ document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
    TIMER EVERGREEN — 2h a partir da entrada do usuário
    ============================================================ */
 (function(){
-  var TIMER_DURATION = 2 * 60 * 60; // 2 horas em segundos
+  var TIMER_DURATION = 12 * 60; // 12 minutos em segundos
   var KEY = 'cali_timer_start';
   var saved = localStorage.getItem(KEY);
   if(!saved){ saved = Date.now(); localStorage.setItem(KEY, saved); }
@@ -653,7 +652,6 @@ document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
     var h = Math.floor(remaining / 3600);
     var m = Math.floor((remaining % 3600) / 60);
     var s = remaining % 60;
-    document.getElementById('tHours').textContent = String(h).padStart(2,'0');
     document.getElementById('tMins').textContent = String(m).padStart(2,'0');
     document.getElementById('tSecs').textContent = String(s).padStart(2,'0');
     if(remaining <= 0){
